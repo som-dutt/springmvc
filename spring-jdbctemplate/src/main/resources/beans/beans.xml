@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	<bean id="studentDAO" class="com.som.demo.dao.impl.StudentDAOImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+	<bean id="teacherDAO" class="com.som.demo.dao.impl.TeacherDAOImpl">
+		<property name="dataSource" ref="h2dataSource" />
+	</bean>
+
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="h2dataSource" />
+	</bean>
+
+</beans>
