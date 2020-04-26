@@ -28,6 +28,11 @@ public class StudentDAOImpl implements StudentDAO {
 		return student;
 	}
 
+	/**
+	 * We can either provide custom bean mapper like {@code StudentMapper} or use
+	 * {@code BeanPropertyRowMapper} which automatically takes care of mapping
+	 * resultset to each element of the class
+	 */
 	public List<Student> getAllStudents() {
 		String query = "select * from student";
 		List<Student> studentList = jdbcTemplate.query(query, new BeanPropertyRowMapper(Student.class));
